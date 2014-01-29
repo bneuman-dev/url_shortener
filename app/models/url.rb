@@ -1,7 +1,9 @@
 class Url < ActiveRecord::Base
   before_create :make_short_url
   before_create :set_click_count
+  validates :short_url, uniqueness: true
   validate :check_if_blank
+  belongs_to :users
 
   def check_if_blank
     if self.url.empty?

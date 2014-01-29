@@ -9,14 +9,15 @@
     <tr>
       <th style="width:30%">Short URL</th>
       <th style="width:30%">Long URL</th>
-      <th style="width:30%">Click Count</th>
     </tr>
     <% @all_urls.each do |listing| %>
     <tr>
-      <td><%= listing.short_url %></td>
+      <td>http://localhost:9393/<%= listing.short_url %></td>
       <td><%= listing.url %></td>
-      <td><%= listing.click_count %></td>
     </tr>
     <% end %>
   </table>
+  <p><a href="/login">Login</a></p>
+  <p><a href="/new">Create an account</a></p>
 </div>
+

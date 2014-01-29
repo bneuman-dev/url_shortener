@@ -1,0 +1,20 @@
+<div class="container">
+<% if !@urls.empty? %>
+<table>
+    <tr>
+      <th style="width:30%">Short URL</th>
+      <th style="width:30%">Long URL</th>
+      <th style="width:30%">Click Count</th>
+    </tr>
+    <% @urls.each do |listing| %>
+    <tr>
+      <td>http://localhost:9393/<%= listing.short_url %></td>
+      <td><%= listing.url %></td>
+      <td><%= listing.click_count %></td>
+    </tr>
+    <% end %>
+</table>
+<% else %>
+  You have no links yet, stupid. <a href="/"> Go make one. </a>
+<% end %>
+</div>
