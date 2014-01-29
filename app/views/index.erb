@@ -1,23 +1,22 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
-
+  <h1>Ben and Cristin's URL Shortener</h1>
+  <h2>Shorten It!</h2>
+  <form method="post" action="/urls">
+    <input type="text" name="url">
+    <input type="submit" name="submit" value="shorten it!" id="submit">
+  </form>
   <table>
     <tr>
-      <th>File Description</th>
-      <th>File Location</th>
+      <th style="width:30%">Short URL</th>
+      <th style="width:30%">Long URL</th>
+      <th style="width:30%">Click Count</th>
     </tr>
+    <% @all_urls.each do |listing| %>
     <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
+      <td><%= listing.short_url %></td>
+      <td><%= listing.url %></td>
+      <td><%= listing.click_count %></td>
     </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
+    <% end %>
   </table>
 </div>
